@@ -1,0 +1,83 @@
+import { useEffect, useState } from 'react';
+import { ArchitectureStrip } from './components/ArchitectureStrip';
+import { FaqSection } from './components/FaqSection';
+import { FeatureSpotlights } from './components/FeatureSpotlights';
+import { FinalCta } from './components/FinalCta';
+import { Footer } from './components/Footer';
+import { Hero } from './components/Hero';
+import { LegalPage } from './components/LegalPage';
+import { ModulesGrid } from './components/ModulesGrid';
+import { Navbar } from './components/Navbar';
+import { PricingSection } from './components/PricingSection';
+import { useTranslations } from './i18n';
+
+type RouteView = 'home' | 'terms' | 'privacy';
+
+function getRouteFromPath(pathname: string): RouteView {
+  const normalized = pathname.toLowerCase().replace(/\/+$/, '');
+  if (normalized === '/terminos') return 'terms';
+  if (normalized === '/privacidad') return 'privacy';
+  return 'home';
+}
+
+export function App() {
+  const t = useTranslations('es');
+  const [route, setRoute] = useState<RouteView>(() => getRouteFromPath(window.location.pathname));
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setRoute(getRouteFromPath(window.location.pathname));
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigateHome = (sectionId?: string) => {
+    if (window.location.pathname !== '/') {
+      window.history.pushState({}, '', '/');
+      setRoute('home');
+    }
+    if (sectionId) {
+      requestAnimationFrame(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const navigateLegal = (page: 'terms' | 'privacy') => {
+    const path = page === 'terms' ? '/terminos' : '/privacidad';
+    if (window.location.pathname !== path) {
+      window.history.pushState({}, '', path);
+    }
+    setRoute(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-[#121212] text-zinc-100">
+      <Navbar t={t} onNavigateHome={navigateHome} />
+
+      {route === 'home' ? (
+        <main className="flex-1">
+          <Hero t={t} />
+          <ArchitectureStrip t={t} />
+          <FeatureSpotlights t={t} />
+          <ModulesGrid t={t} />
+          <PricingSection t={t} />
+          <FaqSection t={t} />
+          <FinalCta t={t} />
+        </main>
+      ) : (
+        <div className="flex-1">
+          <LegalPage t={t} type={route} onBackHome={() => navigateHome()} />
+        </div>
+      )}
+
+      <Footer t={t} onNavigateLegal={navigateLegal} />
+    </div>
+  );
+}
+
+export default App;

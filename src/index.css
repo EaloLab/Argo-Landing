@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #121212;
+  --color-surface: #1E1E1E;
+  --color-surface-alt: #2A2A2A;
+  --color-emerald-accent: #10B981;
+  --color-emerald-deep: #059669;
+  --font-display: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #121212;
+    color: #F4F4F5;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.bg-hero-glow {
+  background-image:
+    radial-gradient(ellipse 65% 50% at 50% -10%, rgba(16, 185, 129, 0.16), transparent 70%),
+    radial-gradient(circle at 82% 28%, rgba(5, 150, 105, 0.12), transparent 45%);
+}
+
+.bg-fintech-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
