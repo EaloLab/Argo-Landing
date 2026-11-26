@@ -49,7 +49,7 @@ export function EaloLogo() {
       <img
         src={config.assets.logos.studioWhite}
         alt={config.brand.studioName}
-        className="h-6 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+        className="h-10 sm:h-11 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
         onError={() => setImgError(true)}
       />
     );

@@ -18,7 +18,15 @@ export function Footer({ t, onNavigateLegal }: FooterProps) {
             <p className="text-sm text-zinc-400 leading-relaxed max-w-sm">{t.footer.description}</p>
             <div className="pt-1 flex items-center gap-3">
               <span className="text-xs text-zinc-500">{t.footer.developedBy}</span>
-              <EaloLogo />
+              <a
+                href={config.urls.studio}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={config.brand.studioName}
+                className="inline-flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981] rounded-lg"
+              >
+                <EaloLogo />
+              </a>
             </div>
           </div>
 

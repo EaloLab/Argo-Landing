@@ -7,6 +7,7 @@ const envProPrice = Number(import.meta.env.VITE_PRO_PRICE);
 const envWebApp = import.meta.env.VITE_WEB_APP_URL?.trim();
 const envHotmart = import.meta.env.VITE_HOTMART_CHECKOUT?.trim();
 const envGooglePlay = import.meta.env.VITE_GOOGLE_PLAY_URL?.trim();
+const envStudioUrl = import.meta.env.VITE_STUDIO_URL?.trim();
 const envSupportEmail = import.meta.env.VITE_SUPPORT_EMAIL?.trim();
 
 export const config = {
@@ -20,6 +21,7 @@ export const config = {
     webApp: envWebApp || 'https://argoapp.pages.dev',
     hotmartCheckout: envHotmart || 'https://pay.hotmart.com/TU_CHECKOUT_VITALICIO',
     googlePlay: envGooglePlay || 'https://play.google.com/store/apps/details?id=com.ealo.ealowallet',
+    studio: envStudioUrl || 'https://ealo.pages.dev/',
   },
   pricing: {
     proPrice: Number.isFinite(envProPrice) && envProPrice > 0 ? envProPrice : 9.99,
