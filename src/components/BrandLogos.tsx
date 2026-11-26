@@ -33,7 +33,7 @@ export function ArgoLogo({ size = 'md', showWordmark = true }: ArgoLogoProps) {
       {showWordmark && (
         <span className="flex flex-col leading-none">
           <span className="font-display font-bold tracking-tight text-white text-lg">ARGO</span>
-          <span className="text-[10px] uppercase tracking-[0.16em] text-zinc-400">Wealth &amp; Portfolio</span>
+          <span className="text-[10px] uppercase tracking-[0.16em] text-zinc-400">Patrimonio y Finanzas</span>
         </span>
       )}
     </span>

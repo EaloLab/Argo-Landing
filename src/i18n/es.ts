@@ -13,12 +13,12 @@ export const es: Translations = {
     menuLabel: 'Abrir menú de navegación',
   },
   hero: {
-    badge: 'ARGO: Wealth & Portfolio · Offline-First · Web & Android',
+    badge: 'ARGO: Patrimonio y Finanzas · Offline-First · Web & Android',
     titleStart: 'Tus finanzas, ',
     titleHighlight: 'patrimonio e inversiones',
     titleEnd: ' en un solo lugar.',
     subtitle:
-      'Registra gastos al instante incluso sin internet, sigue tu portafolio multi-broker y opera en COP, USD, EUR, BTC y USDT con sincronización automática entre Web y Android.',
+      'Registra gastos al instante incluso sin internet, sigue tu portafolio multi-broker y opera en cualquier moneda o criptomoneda con sincronización automática entre Web y Android.',
     primaryCta: `Obtener Argo Pro — ${formattedPrice}`,
     primarySubnote: 'Pago único · Licencia perpetua · Sin mensualidades en Web',
     secondaryCta: 'Abrir Argo',
@@ -86,11 +86,11 @@ export const es: Translations = {
       {
         id: 'transactions',
         tag: 'Multimoneda y Modo Vacaciones',
-        title: 'Control diario en 5 divisas y viajes sin descuadrar tu base',
+        title: 'Control diario en cualquier moneda y viajes sin descuadrar tu base',
         description:
-          'Opera con tasas de cambio en vivo entre COP, USD, EUR, BTC y USDT. Cuando viajes, activa el Modo Vacaciones y agrupa tus gastos por etiqueta en la divisa local.',
+          'Opera con tasas de cambio en vivo para todas las divisas del mundo y criptomonedas. Cuando viajes, activa el Modo Vacaciones y agrupa tus gastos por etiqueta en la moneda local.',
         bullets: [
-          'Tasas en vivo para COP, USD, EUR, BTC y USDT sin conversiones manuales',
+          'Tasas en vivo para todas las divisas y criptomonedas sin conversiones manuales',
           'Registro diario ultrarrápido de efectivo, bancos, tarjetas y billeteras',
           'Modo Vacaciones aislado por etiqueta de viaje sin alterar tu moneda base diaria',
         ],
@@ -114,7 +114,7 @@ export const es: Translations = {
         id: 'multicurrency',
         title: 'Multimoneda en Vivo',
         description:
-          'Soporte nativo para COP, USD, EUR, BTC y USDT con tasas de cambio automáticas actualizadas.',
+          'Soporte para todas las divisas y criptomonedas con tasas de cambio automáticas actualizadas.',
         tag: 'Pro',
       },
       {
@@ -192,7 +192,7 @@ export const es: Translations = {
         'Cuentas líquidas, presupuestos y metas ilimitadas',
         'Brokers, acciones, ETFs y criptoactivos ilimitados',
         'Deudas, préstamos y bienes en patrimonio ilimitados',
-        'Multimoneda en vivo (COP, USD, EUR, BTC y USDT)',
+        'Multimoneda en vivo (todas las divisas y criptomonedas)',
         'Registro de dividendos, comisiones y gráficos avanzados',
         'Modo Vacaciones por etiqueta y divisa de viaje',
         'Exportación de extractos en PDF y respaldo completo CSV',
@@ -257,7 +257,7 @@ export const es: Translations = {
   },
   footer: {
     description:
-      'ARGO: Wealth & Portfolio. Aplicación de finanzas personales, patrimonio neto y portafolio de inversiones offline-first para Web y Android.',
+      'ARGO: Patrimonio y Finanzas. Aplicación de finanzas personales, patrimonio neto y portafolio de inversiones offline-first para Web y Android.',
     productTitle: 'Plataforma',
     legalTitle: 'Legal',
     supportTitle: 'Soporte directo',

@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Database,
   Globe,
+  Maximize2,
   Plane,
   ShieldCheck,
   TrendingUp,
   Wallet,
   AlertTriangle,
   PiggyBank,
+  X,
 } from 'lucide-react';
 
 export type MockupVariant = 'hero' | 'investments' | 'budgets' | 'transactions';
@@ -263,7 +265,17 @@ function TransactionsFallbackPreview() {
 
 export function AppMockup({ screenshotSrc, alt, variant, frame = 'phone', size = 'md' }: AppMockupProps) {
   const [imgFailed, setImgFailed] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(false);
   const maxWidthClass = size === 'lg' ? 'max-w-[600px]' : 'max-w-[460px]';
+
+  useEffect(() => {
+    if (!isZoomed) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsZoomed(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isZoomed]);
 
   const renderFallback = () => {
     switch (variant) {
@@ -306,17 +318,53 @@ export function AppMockup({ screenshotSrc, alt, variant, frame = 'phone', size =
         )}
 
         {!imgFailed ? (
-          <img
-            src={screenshotSrc}
-            alt={alt}
-            loading="lazy"
-            className="w-full h-auto block object-cover bg-[#121212]"
-            onError={() => setImgFailed(true)}
-          />
+          <button
+            type="button"
+            onClick={() => setIsZoomed(true)}
+            aria-label={`Ampliar imagen: ${alt}`}
+            className="group relative block w-full cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#10B981]"
+          >
+            <img
+              src={screenshotSrc}
+              alt={alt}
+              loading="lazy"
+              className="w-full h-auto block object-cover bg-[#121212] transition-transform duration-300 group-hover:scale-[1.01]"
+              onError={() => setImgFailed(true)}
+            />
+            <span className="pointer-events-none absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-[#121212]/85 border border-white/15 px-2.5 py-1 text-[11px] font-medium text-zinc-200 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm">
+              <Maximize2 className="w-3 h-3 text-[#10B981]" />
+              Ampliar
+            </span>
+          </button>
         ) : (
           renderFallback()
         )}
       </div>
+
+      {isZoomed && !imgFailed && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={alt}
+          onClick={() => setIsZoomed(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 sm:p-8"
+        >
+          <button
+            type="button"
+            onClick={() => setIsZoomed(false)}
+            aria-label="Cerrar vista ampliada"
+            className="fixed top-4 right-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#1E1E1E] border border-white/15 text-zinc-200 hover:text-white hover:border-[#10B981]/60 transition-colors cursor-pointer"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <img
+            src={screenshotSrc}
+            alt={alt}
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-[95vw] max-h-[90vh] w-auto h-auto rounded-xl border border-white/15 shadow-2xl bg-[#121212] object-contain"
+          />
+        </div>
+      )}
     </div>
   );
 }
