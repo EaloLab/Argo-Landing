@@ -23,6 +23,7 @@ function getRouteFromPath(pathname: string): RouteView {
 export function App() {
   const t = useTranslations('es');
   const [route, setRoute] = useState<RouteView>(() => getRouteFromPath(window.location.pathname));
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -55,18 +56,32 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const openIosGuide = () => {
+    const iosIdx = t.faq.items.findIndex((item) => item.id === 'ios-install');
+    if (iosIdx !== -1) {
+      setOpenFaqIndex(iosIdx);
+    }
+    requestAnimationFrame(() => {
+      document.getElementById('faq-ios-install')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#121212] text-zinc-100">
       <Navbar t={t} onNavigateHome={navigateHome} />
 
       {route === 'home' ? (
         <main className="flex-1">
-          <Hero t={t} />
+          <Hero t={t} onOpenIosGuide={openIosGuide} />
           <ArchitectureStrip t={t} />
           <FeatureSpotlights t={t} />
           <ModulesGrid t={t} />
           <PricingSection t={t} />
-          <FaqSection t={t} />
+          <FaqSection
+            t={t}
+            openIndex={openFaqIndex}
+            onToggle={(idx) => setOpenFaqIndex((prev) => (prev === idx ? null : idx))}
+          />
           <FinalCta t={t} />
         </main>
       ) : (

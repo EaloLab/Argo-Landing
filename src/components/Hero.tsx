@@ -5,9 +5,10 @@ import { AppMockup } from './AppMockup';
 
 interface HeroProps {
   t: Translations;
+  onOpenIosGuide: () => void;
 }
 
-export function Hero({ t }: HeroProps) {
+export function Hero({ t, onOpenIosGuide }: HeroProps) {
   return (
     <section id="top" className="relative overflow-hidden bg-hero-glow">
       <div className="absolute inset-0 bg-fintech-grid pointer-events-none opacity-60" aria-hidden="true" />
@@ -61,6 +62,13 @@ export function Hero({ t }: HeroProps) {
                   <Smartphone className="w-3.5 h-3.5 text-[#10B981]" />
                   {t.hero.androidCta}
                 </a>
+                <button
+                  type="button"
+                  onClick={onOpenIosGuide}
+                  className="inline-flex items-center gap-1.5 text-zinc-300 hover:text-[#10B981] transition-colors underline decoration-white/20 underline-offset-4 cursor-pointer"
+                >
+                  {t.hero.iosCta}
+                </button>
               </div>
             </div>
 

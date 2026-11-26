@@ -13,7 +13,7 @@ export const es: Translations = {
     menuLabel: 'Abrir menú de navegación',
   },
   hero: {
-    badge: 'ARGO: Patrimonio y Finanzas · Offline-First · Web & Android',
+    badge: 'ARGO: Patrimonio y Finanzas · Web, Android e iPhone',
     titleStart: 'Tus finanzas, ',
     titleHighlight: 'patrimonio e inversiones',
     titleEnd: ' en un solo lugar.',
@@ -23,6 +23,7 @@ export const es: Translations = {
     primarySubnote: 'Pago único · Licencia perpetua · Sin mensualidades en Web',
     secondaryCta: 'Abrir Argo',
     androidCta: 'Disponible en Google Play',
+    iosCta: '¿Usas iPhone? Instálala desde Safari',
     trustPoints: [
       'Funciona 100% sin internet y sincroniza al reconectar',
       'Sincroniza Web y Android con la misma cuenta',
@@ -39,9 +40,9 @@ export const es: Translations = {
       },
       {
         badge: 'Multiplataforma',
-        title: 'Web y Android conectados',
+        title: 'Web, Android e iPhone conectados',
         description:
-          'Usa Argo desde el navegador en argoapp.pages.dev o desde tu celular Android con una sola cuenta y el mismo progreso siempre actualizado.',
+          'Usa Argo desde el navegador en argoapp.pages.dev, en tu celular Android o instálala como Web App en iPhone con una sola cuenta siempre sincronizada.',
       },
       {
         badge: 'Propiedad de Datos',
@@ -226,9 +227,29 @@ export const es: Translations = {
         answer: `Argo Pro se adquiere mediante un pago único de ${formattedPrice} en esta página a través de Hotmart. Obtienes una licencia perpetua de por vida sin mensualidades ni cobros recurrentes en la versión Web (y sincronizada con tu misma cuenta en Android).`,
       },
       {
-        question: '¿Funciona en Android y Web?',
+        question: '¿Funciona en Android, iPhone y Web?',
         answer:
-          'Sí. Puedes usar Argo directamente en el navegador desde argoapp.pages.dev (Windows, Mac, Linux, iOS o Android) y también en la app nativa de Android en Google Play. Al iniciar sesión con la misma cuenta, tu licencia Pro y tus datos sincronizan entre ambas plataformas.',
+          'Sí. Puedes usar Argo directamente en el navegador desde argoapp.pages.dev (Windows, Mac, Linux, iOS o Android) y también en la app nativa de Android en Google Play. Al iniciar sesión con la misma cuenta, tu licencia Pro y tus datos sincronizan entre todas tus plataformas.',
+      },
+      {
+        id: 'ios-install',
+        question: '¿Cómo instalo Argo en iPhone (iOS)?',
+        answer:
+          'Puedes instalar Argo en tu iPhone como Web App sin pasar por App Store siguiendo estos 3 pasos:',
+        steps: [
+          {
+            before: 'Abre ',
+            highlightUrl: 'argoapp.pages.dev',
+            after: ' en Safari.',
+          },
+          {
+            after: 'Toca el botón Compartir (cuadrado con flecha hacia arriba).',
+          },
+          {
+            after: 'Selecciona "Agregar a pantalla de inicio".',
+          },
+        ],
+        note: 'Quedará con su icono en tu pantalla y se abrirá a pantalla completa sincronizada con tu cuenta.',
       },
       {
         question: '¿Cómo recibo mi acceso tras pagar?',

@@ -29,6 +29,7 @@ export interface Translations {
     primarySubnote: string;
     secondaryCta: string;
     androidCta: string;
+    iosCta: string;
     trustPoints: string[];
   };
   architecture: {
@@ -103,8 +104,15 @@ export interface Translations {
     title: string;
     subtitle: string;
     items: Array<{
+      id?: string;
       question: string;
       answer: string;
+      steps?: Array<{
+        before?: string;
+        highlightUrl?: string;
+        after: string;
+      }>;
+      note?: string;
     }>;
   };
   finalCta: {
