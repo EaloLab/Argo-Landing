@@ -4,6 +4,10 @@
  * el correo de soporte y las rutas de logos/capturas.
  */
 const envProPrice = Number(import.meta.env.VITE_PRO_PRICE);
+const envWebApp = import.meta.env.VITE_WEB_APP_URL?.trim();
+const envHotmart = import.meta.env.VITE_HOTMART_CHECKOUT?.trim();
+const envGooglePlay = import.meta.env.VITE_GOOGLE_PLAY_URL?.trim();
+const envSupportEmail = import.meta.env.VITE_SUPPORT_EMAIL?.trim();
 
 export const config = {
   brand: {
@@ -13,9 +17,9 @@ export const config = {
     year: 2026,
   },
   urls: {
-    webApp: 'https://argoapp.pages.dev',
-    hotmartCheckout: 'https://pay.hotmart.com/TU_CHECKOUT_VITALICIO',
-    googlePlay: 'https://play.google.com/store/apps/details?id=com.ealo.ealowallet',
+    webApp: envWebApp || 'https://argoapp.pages.dev',
+    hotmartCheckout: envHotmart || 'https://pay.hotmart.com/TU_CHECKOUT_VITALICIO',
+    googlePlay: envGooglePlay || 'https://play.google.com/store/apps/details?id=com.ealo.ealowallet',
   },
   pricing: {
     proPrice: Number.isFinite(envProPrice) && envProPrice > 0 ? envProPrice : 9.99,
@@ -23,7 +27,7 @@ export const config = {
     guaranteeDays: 7,
   },
   support: {
-    email: 'luiscarlosealo@gmail.com',
+    email: envSupportEmail || 'luiscarlosealo@gmail.com',
   },
   assets: {
     logos: {
@@ -42,4 +46,8 @@ export const config = {
 
 export function getFormattedProPrice(): string {
   return `$${config.pricing.proPrice.toFixed(2)} ${config.pricing.currency}`;
+}
+
+export function getWebAppDomain(): string {
+  return config.urls.webApp.replace(/^https?:\/\//i, '').replace(/\/+$/, '');
 }

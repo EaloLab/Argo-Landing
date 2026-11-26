@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { getWebAppDomain } from '../config';
 import {
   Database,
   Globe,
@@ -305,7 +306,7 @@ export function AppMockup({ screenshotSrc, alt, variant, frame = 'phone', size =
               <span className="h-2.5 w-2.5 rounded-full bg-[#10B981]" />
             </div>
             <span className="text-[11px] text-zinc-400 bg-[#2A2A2A] px-3 py-0.5 rounded-full">
-              argoapp.pages.dev
+              {getWebAppDomain()}
             </span>
             <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
           </div>

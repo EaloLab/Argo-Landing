@@ -1,7 +1,8 @@
-import { config, getFormattedProPrice } from '../config';
+import { config, getFormattedProPrice, getWebAppDomain } from '../config';
 import type { Translations } from './types';
 
 const formattedPrice = getFormattedProPrice();
+const webAppDomain = getWebAppDomain();
 
 export const en: Translations = {
   nav: {
@@ -43,7 +44,7 @@ export const en: Translations = {
         badge: 'Cross-Platform',
         title: 'Web, Android & iPhone connected',
         description:
-          'Use Argo in your browser at argoapp.pages.dev, on your Android phone, or install it as a Web App on iPhone with one always-synced account.',
+          `Use Argo in your browser at ${webAppDomain}, on your Android phone, or install it as a Web App on iPhone with one always-synced account.`,
       },
       {
         badge: 'Data Ownership',
@@ -230,7 +231,7 @@ export const en: Translations = {
       {
         question: 'Does it work on Android, iPhone, and Web?',
         answer:
-          'Yes. You can use Argo directly in your browser at argoapp.pages.dev (Windows, Mac, Linux, iOS, or Android) and also in the native Android app on Google Play. Signing in with the same account syncs your Pro license and data across all your devices.',
+          `Yes. You can use Argo directly in your browser at ${webAppDomain} (Windows, Mac, Linux, iOS, or Android) and also in the native Android app on Google Play. Signing in with the same account syncs your Pro license and data across all your devices.`,
       },
       {
         id: 'ios-install',
@@ -240,7 +241,7 @@ export const en: Translations = {
         steps: [
           {
             before: 'Open ',
-            highlightUrl: 'argoapp.pages.dev',
+            highlightUrl: webAppDomain,
             after: ' in Safari.',
           },
           {
