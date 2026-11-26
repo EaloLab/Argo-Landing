@@ -12,8 +12,8 @@ export function Hero({ t }: HeroProps) {
     <section id="top" className="relative overflow-hidden bg-hero-glow">
       <div className="absolute inset-0 bg-fintech-grid pointer-events-none opacity-60" aria-hidden="true" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-          <div className="lg:col-span-7 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#10B981]/30 bg-[#10B981]/10 px-3.5 py-1.5 text-xs font-medium text-[#10B981]">
               <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
               {t.hero.badge}
@@ -74,12 +74,13 @@ export function Hero({ t }: HeroProps) {
             </ul>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-6">
             <AppMockup
               screenshotSrc={config.assets.screenshots.heroAccounts}
               alt="Captura de Argo mostrando cuentas líquidas y patrimonio neto"
               variant="hero"
               frame="phone"
+              size="lg"
             />
           </div>
         </div>

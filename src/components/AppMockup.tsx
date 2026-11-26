@@ -17,6 +17,7 @@ interface AppMockupProps {
   alt: string;
   variant: MockupVariant;
   frame?: 'phone' | 'browser';
+  size?: 'md' | 'lg';
 }
 
 function HeroFallbackPreview() {
@@ -31,7 +32,7 @@ function HeroFallbackPreview() {
         </div>
         <span className="inline-flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30">
           <Database className="w-3 h-3" />
-          SQLite Sync
+          Sync Activo
         </span>
       </div>
 
@@ -260,8 +261,9 @@ function TransactionsFallbackPreview() {
   );
 }
 
-export function AppMockup({ screenshotSrc, alt, variant, frame = 'phone' }: AppMockupProps) {
+export function AppMockup({ screenshotSrc, alt, variant, frame = 'phone', size = 'md' }: AppMockupProps) {
   const [imgFailed, setImgFailed] = useState(false);
+  const maxWidthClass = size === 'lg' ? 'max-w-[600px]' : 'max-w-[460px]';
 
   const renderFallback = () => {
     switch (variant) {
@@ -277,7 +279,7 @@ export function AppMockup({ screenshotSrc, alt, variant, frame = 'phone' }: AppM
   };
 
   return (
-    <div className="relative mx-auto w-full max-w-[460px]">
+    <div className={`relative mx-auto w-full ${maxWidthClass}`}>
       <div
         className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#10B981]/20 via-[#059669]/10 to-transparent blur-2xl pointer-events-none"
         aria-hidden="true"
@@ -297,9 +299,9 @@ export function AppMockup({ screenshotSrc, alt, variant, frame = 'phone' }: AppM
           </div>
         ) : (
           <div className="flex items-center justify-between px-4 py-2 bg-[#181818] border-b border-white/[0.07]">
-            <span className="text-[10px] font-medium text-zinc-400">ARGO · Offline-First</span>
+            <span className="text-[10px] font-medium text-zinc-400">ARGO · Web &amp; Android</span>
             <span className="h-1.5 w-10 rounded-full bg-[#2A2A2A]" />
-            <span className="text-[10px] text-[#10B981] font-medium">SQLite</span>
+            <span className="text-[10px] text-[#10B981] font-medium">Sync</span>
           </div>
         )}
 

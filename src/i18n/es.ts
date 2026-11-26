@@ -18,13 +18,13 @@ export const es: Translations = {
     titleHighlight: 'patrimonio e inversiones',
     titleEnd: ' en un solo lugar.',
     subtitle:
-      'Registra gastos al instante sin internet con SQLite local, sigue tu portafolio multi-broker y opera en COP, USD, EUR, BTC y USDT con sincronización en la nube entre Web y Android.',
+      'Registra gastos al instante incluso sin internet, sigue tu portafolio multi-broker y opera en COP, USD, EUR, BTC y USDT con sincronización automática entre Web y Android.',
     primaryCta: `Obtener Argo Pro — ${formattedPrice}`,
     primarySubnote: 'Pago único · Licencia perpetua · Sin mensualidades en Web',
     secondaryCta: 'Abrir Argo',
     androidCta: 'Disponible en Google Play',
     trustPoints: [
-      'Funciona 100% offline con SQLite local',
+      'Funciona 100% sin internet y sincroniza al reconectar',
       'Sincroniza Web y Android con la misma cuenta',
       `Garantía de ${config.pricing.guaranteeDays} días respaldada por Hotmart`,
     ],
@@ -32,8 +32,8 @@ export const es: Translations = {
   architecture: {
     items: [
       {
-        badge: 'SQLite Local',
-        title: 'Velocidad Offline-First real',
+        badge: 'Sincronización',
+        title: 'Tu dinero siempre al día',
         description:
           'Tus movimientos, presupuestos y saldos cargan al instante incluso sin conexión. Cuando vuelves a estar en línea, todo se sincroniza automáticamente.',
       },
@@ -238,7 +238,7 @@ export const es: Translations = {
       {
         question: '¿Mis datos están seguros offline y en la nube?',
         answer:
-          'Sí. Argo utiliza arquitectura offline-first basada en SQLite local, lo que significa que tus registros se guardan primero en tu dispositivo para funcionar sin internet y con respuesta instantánea. Cuando tienes conexión, se sincronizan de forma segura en la nube para respaldar tu cuenta entre Web y Android.',
+          'Sí. Tus registros se guardan primero en tu dispositivo para funcionar sin internet y con respuesta instantánea. Cuando tienes conexión, se sincronizan de forma segura en la nube para respaldar tu cuenta entre Web y Android.',
       },
       {
         question: '¿Cómo funciona la garantía de 7 días?',
@@ -313,7 +313,7 @@ export const es: Translations = {
         {
           heading: '6. Disponibilidad y soporte',
           body: [
-            `${config.brand.studioName} realiza esfuerzos continuos para mantener la disponibilidad de la sincronización en la nube y las actualizaciones de seguridad. Gracias a la arquitectura offline-first con SQLite local, el usuario conserva acceso operativo a sus registros en su dispositivo incluso sin conexión.`,
+            `${config.brand.studioName} realiza esfuerzos continuos para mantener la disponibilidad de la sincronización en la nube y las actualizaciones de seguridad. Gracias a que los datos se guardan localmente en el dispositivo, el usuario conserva acceso operativo a sus registros incluso sin conexión.`,
           ],
         },
       ],
@@ -328,9 +328,9 @@ export const es: Translations = {
           ],
         },
         {
-          heading: '2. Datos que recopilamos y arquitectura Offline-First',
+          heading: '2. Datos que recopilamos y sincronización',
           body: [
-            'Argo almacena tus transacciones, cuentas, presupuestos, metas, deudas, patrimonio e inversiones localmente en tu dispositivo mediante SQLite para garantizar rapidez y funcionamiento sin internet.',
+            'Argo almacena tus transacciones, cuentas, presupuestos, metas, deudas, patrimonio e inversiones localmente en tu dispositivo para garantizar rapidez y funcionamiento sin internet.',
             'Cuando utilizas una cuenta con sincronización en la nube, almacenamos los datos estrictamente necesarios (correo de autenticación y tus registros financieros sincronizados) para mantener tu información disponible entre Web y Android.',
           ],
         },
