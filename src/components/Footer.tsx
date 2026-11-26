@@ -14,7 +14,7 @@ export function Footer({ t, onNavigateLegal }: FooterProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-5 space-y-4">
-            <ArgoLogo />
+            <ArgoLogo subtitle={t.nav.brandSubtitle} />
             <p className="text-sm text-zinc-400 leading-relaxed max-w-sm">{t.footer.description}</p>
             <div className="pt-1 flex items-center gap-3">
               <span className="text-xs text-zinc-500">{t.footer.developedBy}</span>

@@ -1,15 +1,17 @@
 import { useState } from 'react';
-import { ExternalLink, Menu, X } from 'lucide-react';
+import { ExternalLink, Globe, Menu, X } from 'lucide-react';
 import { config } from '../config';
-import type { Translations } from '../i18n/types';
+import type { Locale, Translations } from '../i18n/types';
 import { ArgoLogo } from './BrandLogos';
 
 interface NavbarProps {
   t: Translations;
+  locale: Locale;
+  onChangeLocale: (locale: Locale) => void;
   onNavigateHome: (sectionId?: string) => void;
 }
 
-export function Navbar({ t, onNavigateHome }: NavbarProps) {
+export function Navbar({ t, locale, onChangeLocale, onNavigateHome }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleLinkClick = (sectionId?: string) => {
@@ -29,7 +31,7 @@ export function Navbar({ t, onNavigateHome }: NavbarProps) {
             }}
             className="shrink-0 focus:outline-none"
           >
-            <ArgoLogo />
+            <ArgoLogo subtitle={t.nav.brandSubtitle} />
           </a>
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
@@ -66,6 +68,28 @@ export function Navbar({ t, onNavigateHome }: NavbarProps) {
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
+            <div
+              role="group"
+              aria-label="Language selector"
+              className="inline-flex items-center rounded-xl border border-white/10 bg-[#1E1E1E] p-0.5 text-xs font-semibold"
+            >
+              <Globe className="w-3.5 h-3.5 text-zinc-400 mx-2" aria-hidden="true" />
+              {(['es', 'en'] as const).map((lang) => (
+                <button
+                  key={lang}
+                  type="button"
+                  onClick={() => onChangeLocale(lang)}
+                  aria-pressed={locale === lang}
+                  className={`px-2.5 py-1 rounded-lg uppercase transition-colors cursor-pointer ${
+                    locale === lang
+                      ? 'bg-[#10B981] text-[#121212]'
+                      : 'text-zinc-400 hover:text-white'
+                  }`}
+                >
+                  {lang}
+                </button>
+              ))}
+            </div>
             <a
               href={config.urls.webApp}
               target="_blank"
@@ -135,6 +159,32 @@ export function Navbar({ t, onNavigateHome }: NavbarProps) {
           </div>
 
           <div className="pt-2 flex flex-col gap-2.5 border-t border-white/[0.07]">
+            <div className="flex items-center justify-between rounded-xl border border-white/10 bg-[#1E1E1E] px-3 py-2">
+              <span className="inline-flex items-center gap-2 text-xs font-medium text-zinc-400">
+                <Globe className="w-3.5 h-3.5" aria-hidden="true" />
+                {locale === 'es' ? 'Idioma' : 'Language'}
+              </span>
+              <div className="inline-flex items-center gap-1">
+                {(['es', 'en'] as const).map((lang) => (
+                  <button
+                    key={lang}
+                    type="button"
+                    onClick={() => {
+                      onChangeLocale(lang);
+                      setMobileOpen(false);
+                    }}
+                    aria-pressed={locale === lang}
+                    className={`px-2.5 py-1 rounded-lg text-xs font-semibold uppercase transition-colors cursor-pointer ${
+                      locale === lang
+                        ? 'bg-[#10B981] text-[#121212]'
+                        : 'text-zinc-400 hover:text-white'
+                    }`}
+                  >
+                    {lang}
+                  </button>
+                ))}
+              </div>
+            </div>
             <a
               href={config.urls.webApp}
               target="_blank"

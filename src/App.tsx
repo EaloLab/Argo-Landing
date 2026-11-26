@@ -10,8 +10,15 @@ import { ModulesGrid } from './components/ModulesGrid';
 import { Navbar } from './components/Navbar';
 import { PricingSection } from './components/PricingSection';
 import { useTranslations } from './i18n';
+import type { Locale } from './i18n/types';
 
 type RouteView = 'home' | 'terms' | 'privacy';
+
+function getInitialLocale(): Locale {
+  const saved = window.localStorage.getItem('argo_locale');
+  if (saved === 'es' || saved === 'en') return saved;
+  return navigator.language.toLowerCase().startsWith('en') ? 'en' : 'es';
+}
 
 function getRouteFromPath(pathname: string): RouteView {
   const normalized = pathname.toLowerCase().replace(/\/+$/, '');
@@ -21,9 +28,15 @@ function getRouteFromPath(pathname: string): RouteView {
 }
 
 export function App() {
-  const t = useTranslations('es');
+  const [locale, setLocale] = useState<Locale>(getInitialLocale);
+  const t = useTranslations(locale);
   const [route, setRoute] = useState<RouteView>(() => getRouteFromPath(window.location.pathname));
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    window.localStorage.setItem('argo_locale', locale);
+  }, [locale]);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -68,7 +81,7 @@ export function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#121212] text-zinc-100">
-      <Navbar t={t} onNavigateHome={navigateHome} />
+      <Navbar t={t} locale={locale} onChangeLocale={setLocale} onNavigateHome={navigateHome} />
 
       {route === 'home' ? (
         <main className="flex-1">

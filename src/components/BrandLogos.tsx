@@ -4,9 +4,10 @@ import { config } from '../config';
 interface ArgoLogoProps {
   size?: 'sm' | 'md';
   showWordmark?: boolean;
+  subtitle?: string;
 }
 
-export function ArgoLogo({ size = 'md', showWordmark = true }: ArgoLogoProps) {
+export function ArgoLogo({ size = 'md', showWordmark = true, subtitle = 'Patrimonio y Finanzas' }: ArgoLogoProps) {
   const [imgError, setImgError] = useState(false);
   const dim = size === 'sm' ? 'h-8 w-8' : 'h-9 w-9';
 
@@ -33,7 +34,7 @@ export function ArgoLogo({ size = 'md', showWordmark = true }: ArgoLogoProps) {
       {showWordmark && (
         <span className="flex flex-col leading-none">
           <span className="font-display font-bold tracking-tight text-white text-lg">ARGO</span>
-          <span className="text-[10px] uppercase tracking-[0.16em] text-zinc-400">Patrimonio y Finanzas</span>
+          <span className="text-[10px] uppercase tracking-[0.16em] text-zinc-400">{subtitle}</span>
         </span>
       )}
     </span>

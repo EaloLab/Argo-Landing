@@ -1,4 +1,4 @@
-export type Locale = 'es';
+export type Locale = 'es' | 'en';
 
 export type ModuleId =
   | 'accounts'
@@ -12,6 +12,7 @@ export type ModuleId =
 
 export interface Translations {
   nav: {
+    brandSubtitle: string;
     features: string;
     pricing: string;
     faq: string;

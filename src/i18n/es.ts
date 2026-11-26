@@ -5,6 +5,7 @@ const formattedPrice = getFormattedProPrice();
 
 export const es: Translations = {
   nav: {
+    brandSubtitle: 'Patrimonio y Finanzas',
     features: 'Funciones',
     pricing: 'Gratis vs. Pro',
     faq: 'Preguntas frecuentes',
