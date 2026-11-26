@@ -19,7 +19,7 @@ export const config = {
   },
   urls: {
     webApp: envWebApp || 'https://argoapp.pages.dev',
-    hotmartCheckout: envHotmart || 'https://pay.hotmart.com/TU_CHECKOUT_VITALICIO',
+    hotmartCheckout: envHotmart || 'https://pay.hotmart.com/L108626040K',
     googlePlay: envGooglePlay || 'https://play.google.com/store/apps/details?id=com.ealo.ealowallet',
     studio: envStudioUrl || 'https://ealo.pages.dev/',
   },
